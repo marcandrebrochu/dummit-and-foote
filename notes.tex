@@ -72,7 +72,17 @@ Let $N=\{(x_1,x_2,\dots,x_n)\ |\ x_i\in I_i\ \text{and}\ x_1+x_2+\dots+x_n=0\}$.
 \end{enumerate}
 
 \item[5.]
+It is clear that $0\in IM$, hence $IM$ is not empty. Without loss of generality, we can take $a_1m_1+a_2m_2+\dots+a_nm_n$ and $b_1m_1+b_2m_2+\dots+b_nm_n$ two elements of $IM$. Take also $\alpha\in R$. Then
+\begin{equation*}
+\sum_{i=1}^na_im_i+\alpha\sum_{i=1}^nb_im_i = \sum_{i=1}^n(\underbrace{a_i+\alpha b_i}_{\in I})m_i \in IM.
+\end{equation*}
+Therefore by the Submodule Criterion $IM$ is a submodule of $M$.
 
+\item[6.]
+Let $\{M_i\}_{i\in I}$ be a nonempty collection of submodules of an $R$-module. From a result of group theory, we know $M=\bigcap_{i\in I}M_i$ is a subgroup: what's left to check is that $M$ is closed under the action of $R$. Take some $m\in M$. Then $m\in M_i$ for all $i\in I$. Take some $\alpha\in R$. Because each $M_i$ is a module, $\alpha m\in M_i$ $\forall i\in I$. Hence $\alpha m\in M$, proving that $M$ is a submodule of an $R$-module.
+
+\item[7.]
+Let $N=\bigcup_{i=1}^\infty N_i$. It is evident that $N$ is nonempty. Pick $x,y\in N$ and $\alpha\in R$. There exists some integers $k$, $l$ such that $x\in N_k$ and $y\in N_l$. Without loss of generality, suppose $k\leq l$. Then $N_k\subseteq N_l$, which means that $x\in N_l$. Because $N_l$ is a module, $x+\alpha y\in N_l\subseteq N$. By the Submodule Criterion, $N$ is a submodule of $M$.
 
 \item[8.]
 \begin{enumerate}
