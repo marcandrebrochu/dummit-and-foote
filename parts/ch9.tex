@@ -1,0 +1,20 @@
+\chapter{Polynomial Rings}
+
+\section{Polynomial Rings over Fields II}
+
+For the remaining exercises let $F$ be a field, let $F^n$ be the set of all $n$-tuples of elements of $F$ (called \textit{affine $n$-space over F}) and let $R$ be the polynomial ring $F[x_1,x_2,\dots,x_n]$. The elements of $R$ form a ring of $F$-valued functions on $F^n$, where the value of the polynomial $p(x_1,\dots,x_n)$ on the $n$-tuple $(a_1,\dots,a_n)$ is obtained by substituting $a_i$ for $x_i$ for all $i$.
+
+\begin{enumerate}
+\item[12.]
+\begin{enumerate}
+\item
+Let $X$ be any given subset of $F^n$. We always have $0_R\in I(X)$ and thus $I(X)$ is never empty. Take any $f,g\in I(X)$. Then for all $a\in X$, $(f+g)(x) = f(x)+g(x)=0$. Thus $I(X)$ is closed under addition. Take some $h\in R$. For all $a\in X$, $(h\cdot f)(x)=h(x)f(x)=0$ which means that $I(X)$ absorbs left multiplication. Because $R$ is commutative, we get that $I(X)$ is an ideal in this ring.
+
+Let $J\subseteq R$ be arbitrarily given. If $a\in V(\langle J\rangle)$, then for all $f\in J\subseteq \langle J\rangle$, we have that $f(a)=0$. Thus $V(\langle J\rangle)\subseteq V(J)$. Now let $a\in V(J)$. Take any $f\in \langle J\rangle$. Then $f$ is a finite combination of $R$-multiples of elements of $J$, i.e. $f=f_1j_1+\dots+f_nj_n$ with $f_i\in R$, $j_i\in J$ and $n\in \mathbb{N}$. So $f(a) = f_1(a)j_1(a)+\dots+f_n(a)j_n(a)$. Since for all $j\in J$, $j(a)=0$, we get that $f(a)=0$ and thus $a\in V(\langle J\rangle)$. Therefore $V(J)=V(\langle J\rangle)$ for any subset $J$ of $R$.
+
+\item
+Let $f\in I(Y)$. Then for all $a\in X$, $a$ is also an element of $Y$ and therefore $f(a)=0$. Thus $f\in I(X)$.
+
+Let $a\in V(J)$. Then for all $f\in I\subseteq J$, $f(a)=0$. Thus $a\in V(I)$.
+\end{enumerate}
+\end{enumerate}
