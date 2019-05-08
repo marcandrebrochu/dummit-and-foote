@@ -11,6 +11,8 @@
 \usepackage{amssymb}
 
 \DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\im}{im}
 
 \begin{document}
@@ -134,6 +136,13 @@ Consider the $\mathbb{R}[x]$-module $M$ induced from the vector space $\mathbb{R
 \item
 Consider a similar $M$ again but this time induced using the linear transformation $T'$ which is a projection on the $y$-axis. The element $(1,1)\in\mathbb{R}^2$ generates $M$: take any $(a,b)\in\mathbb{R}^2$. Then $(a+(b-a)x)\cdot(1,1)=a(1,1)+(b-a)T'(1,1)=a(1,1)+(b-a)(0,1)=(a,a)+(0,b-a)=(a,b)$. Thus $M$ is a cyclic module.
 \end{enumerate}
+
+\item[9.]
+Suppose that $M\neq 0$ and $M$ is a cyclic module with any nonzero element as generator. Take $N\neq 0$ a submodule of $M$ and pick some $n\in N$. Then $Rn\subseteq N$ as $N$ is closed under the action of $R$. Moreover $Rn=M$ by our supposition. Hence $M=N$. Because $N$ was aribtrary, we conclude that $M$ is irreducible. On the other hand, suppose that $M$ is irreducible (and so $M\neq 0$). Take any nonzero $m\in M$. Then $Rm$ is a submodule of $M$, hence by irreducibility $Rm=M$ and $m$ is a generator of $M$.
+
+Because $\mathbb{Z}$-modules are the same thing as abelian groups and $\mathbb{Z}$-submodules are the same thing as subgroups of abelian groups, the irreducible $\mathbb{Z}$-modules are exactly the simple abelian groups. By basic group theory, these are exactly the abelian groups having order a prime number.
+
+\item[11.] \textbf{Schur's Lemma}. Take $M_1$ and $M_2$ irreducible $R$-modules and $\varphi\in\Hom_R(M_1,M_2)$ with $\varphi$ nonzero. Since $\ker\varphi$ is a submodule of $M_1$ and $\ker\varphi\neq M_1$, we must have $\ker\varphi=0$. Similarily, since $\im\varphi$ is a submodule of $M_2$ and $\im\varphi\neq 0$, we must have $\im\varphi=M_2$. Thus $M_1\cong M_2$. Now consider some $\alpha\in\End_R(M)$ for $M$ an irreducible $R$-module. By the previous result, $\alpha$ must be an automorphism or the zero homomorphism; in the first case it always has an inverse. Therefore $\End_R(M)$ is a divison ring.
 \end{enumerate}
 
 \end{document}
