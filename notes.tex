@@ -109,6 +109,31 @@ Write $A=\{m\in M\ |\ am=0\ \forall a\in I\}$. Since it is clear that $0\in A$, 
 \item[1.]
 Let $M$ and $N$ be $R$-modules and let $\varphi:M\to N$ be a $R$-module homomorphism. It is clear that $0\in\ker\varphi$, so it is not empty. Take any $x,y\in\ker\varphi$ and any $r\in R$. Then $\varphi(x+ry) = \varphi(x)+r\varphi(y)=0$ and so $x+ry\in\ker\varphi$. By the submodule criterion, we get that $\ker\varphi$ is a submodule of $M$.
 Similarily, we see that $\im\varphi$ is not empty because it contains $0$. Take any $x,y\in \im\varphi$ and any $r\in R$. Then there exists $a,b\in M$ such that $\varphi(a)=x$ and $\varphi(b)=y$. Thus $\varphi(a)+r\varphi(b) = \varphi(a+rb)=x+ry$ and we get by the submodule criterion that $\im\varphi$ is a submodule of $N$.
+
+\item[12.]
+The notation in this question seems confusing at first, but realize that $I(R^n)$ and $(IR)^n$ are actually exactly the same thing (and this thing is an $R$-submodule of $R^n$).
+
+We have by Exercise $5$ in Section 1 that $IR$ is a $R$-submodule of $R$. Therefore, by Exercise 11 of this section, we obtain the result immediatly.
+\end{enumerate}
+
+\section{Generation of Modules, Direct Sums and Free Modules}
+
+\begin{enumerate}
+\item
+Notice that a homomorphism $\Phi$ from a free module $F(A)$ to a free module $F(B)$ is necessarily injective. Indeed, if $\sum\alpha_ia_i, \sum\beta_ia_i \in \ker\Phi$, then $\Phi(\sum\alpha_ia_i)=\sum\alpha_i\Phi(a_i)=0$ and $\Phi(\sum\beta_ia_i)=\sum\beta_i\Phi(a_i)=0$. Since $F(B)$ is a free module, $0\in F(B)$ has a unique representation, meaning that $\alpha_i=\beta_i$ for each $i$.
+
+Since $A$ and $B$ are sets of the same cardinality, there exists a bijection $\beta$ between them. Let $i$ and $j$ be inclusion of $A$ in $F(A)$ and of $B$ in $F(B)$ respectively. By Theorem 6, we obtain a unique homomorphism $\Phi:F(A)\to F(B)$ such that $\Phi\circ i = j\circ\beta$. By the previous paragraph, it is a monomorphism. Now take any element $y=\sum\alpha_i(j\circ\beta)(a_i)\in F(B)$. By definition of $\Phi$, we have $\Phi(\sum\alpha_i a_i)=\sum\alpha_i(j\circ\beta)(a_i)=y$ and so $\Phi$ is surjective. Hence it is an isomorphism and $F(A)\cong F(B)$.
+
+\item
+Let $I$ be a maximal ideal of $R$ (such a maximal ideal always exists by Zorn's Lemma). Then by Exercise 12 of Section 2, $R^n/IR^n=R^n/I^n\cong (R/I)\times\dots\times(R/I)$ ($n$ times) and similarily $R^m/IR^m\cong (R/I)\times\dots\times(R/I)$ ($m$ times). By maximality of $I$, $R/I=K$ is a field. Thus we get $R^n\cong R^m$ if and only if $K^n\cong K^m$ if and only if $n=m$.
+
+\item
+\begin{enumerate}
+\item
+Consider the $\mathbb{R}[x]$-module $M$ induced from the vector space $\mathbb{R}^2$ over the field $\mathbb{R}$ using the linear transformation $T$ which sends a vector to its counter-clockwise rotation by $\pi/2$ radians. Take $(1,0)\in \mathbb{R}$: this element is a generator for $M$. Indeed, take any $(a,b)\in \mathbb{R}^2$. Then $(a+bx)\cdot(1,0) = a\cdot(1,0)+b\cdot T(1,0) = a(1,0)+b(0,1)=(a,b)$, hence $\mathbb{R}[x]\cdot(1,0)=M$. Therefore $M$ is a cyclic module.
+\item
+Consider a similar $M$ again but this time induced using the linear transformation $T'$ which is a projection on the $y$-axis. The element $(1,1)\in\mathbb{R}^2$ generates $M$: take any $(a,b)\in\mathbb{R}^2$. Then $(a+(b-a)x)\cdot(1,1)=a(1,1)+(b-a)T'(1,1)=a(1,1)+(b-a)(0,1)=(a,a)+(0,b-a)=(a,b)$. Thus $M$ is a cyclic module.
+\end{enumerate}
 \end{enumerate}
 
 \end{document}
