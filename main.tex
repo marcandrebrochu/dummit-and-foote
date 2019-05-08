@@ -2,6 +2,7 @@
 
 \documentclass{report}
 
+\usepackage{changepage}
 \usepackage{geometry}
 \geometry{a4paper, top=1in, bottom=1.5in}
 \setlength{\parindent}{0pt}
@@ -9,6 +10,11 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
+
+\newcommand{\answer}[2]{
+  \textbf{#1.}
+  #2
+}
 
 \DeclareMathOperator{\Tor}{Tor}
 \DeclareMathOperator{\Hom}{Hom}
