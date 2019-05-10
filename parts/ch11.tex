@@ -1,0 +1,35 @@
+\chapter{Vector Spaces}
+
+\section{Definitions and Basic Theory}
+
+\answer{1}{
+Suppose $(a_1,a_2,\dots,a_n)$ is not the zero vector. Let $\varphi:\mathbb{R}^n\to \mathbb{R}$ be given by $\varphi(x_1,x_2,\dots,x_n)=a_1x_1+a_2x_2+\dots+a_nx_n$. This is a linear mapping because
+\begin{align*}
+\varphi((x_1,x_2,\dots,x_n)+(y_1,y_2,\dots,y_n)) &= a_1(x_1+y_1)+a_2(x_2+y_2)+\dots+a_n(x_n+y_n) \\
+&= (a_1x_1+a_2x_2+\dots+a_nx_n)+(a_1y_1+a_2y_2+\dots+a_ny_n) \\
+&= \varphi(x_1,x_2,\dots,x_n)+\varphi(y_1,y_2,\dots,y_n)
+\end{align*}
+and
+\begin{align*}
+\varphi(\alpha(x_1, x_2,\dots, x_n)) &= a_1(\alpha x_1)+a_2(\alpha x_2)+\dots+a_n(\alpha x_n) \\
+&= \alpha(a_1x_1+a_2x_2+\dots+a_nx_n) \\
+&= \alpha\varphi(x_1,x_2,\dots,x_n).
+\end{align*}
+It is clear that $\varphi$ is surjective: pick any $y\in\mathbb{R}$. Without loss of generality, $a_1\neq 0$, hence $y=\varphi((y/a_1),0,\dots,0)$. Thus $\dim\im\varphi=1$. By Corollary 8, we get that $\dim\ker\varphi = n-1$. Since the kernel of $\varphi$ is the set of elements $(x_1,x_2,\dots,x_n)$ of $\mathbb{R}^n$ with $a_1x_1+a_2x_2+\dots+a_nx_n=0$ and $\ker\varphi$ is a subspace of $\mathbb{R}^n$, this answers the first part of the question.
+
+To find a base, let
+\begin{equation*}
+B = \left\{b_2=\left(\frac{-a_2}{a_1},1,0,\dots,0\right), b_3=\left(\frac{-a_3}{a_1},0,1,\dots,0\right), \dots, b_{n}=\left(\frac{a_n}{a_1},0,0,\dots,1\right)\right\}
+\end{equation*}
+(recall that $a_1\neq 0$). Pick any vector $x=(x_1,x_2,\dots,x_n)\in\ker\varphi$. Then $x_1 = (-1/a_1)(a_2x_2+\dots+a_nx_n)$, hence $x=x_2b_2+x_3b_3+\dots+x_nb_n$. Thus $B$ spans $\ker\varphi$. Moreover it is easy to see that $B$ is a linearly independent set. Therefore it is a basis (of $n-1$ elements) for the vector subspace $\ker\varphi$.
+}
+
+\answer{3}{
+Let $b_1=(1,0,0,0)$, $b_2=(1,-1,0,0)$, $b_3=(1,-1,1,0)$ and $b_4=(1,-1,1,-1)$. Then, $(0,1,0,0)=b_2-b_1$, $(0,0,1,0)=b_3-b_2$ and $(0,0,0,1)=b_3-b_4$. Therefore
+\begin{align*}
+\varphi((a,b,c,d)) &= \varphi(ab_1+b(b_2-b_1)+c(b_3-b_2)+d(b_3-b_4)) \\
+&= (a-b)\varphi(b_1)+(b-c)\varphi(b_2)+(c+d)\varphi(b_3)+d\varphi(b_4) \\
+&= a-b+c+d.
+\end{align*}
+This is a concrete realization of an "extension by linearity" of $\varphi$.
+}
