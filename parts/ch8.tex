@@ -1,0 +1,52 @@
+\chapter{Euclidean Domains, Principal Ideal Domains and Unique Factorization Domains}
+
+\section{Euclidean Domains}
+
+\answer{7}{
+\begin{enumerate}[label=(\alph*)]
+\item Set $\alpha=a+bi$ and $\beta=c+di$. We simply have
+\begin{equation*}
+\frac{\alpha}{\beta} = \frac{a+bi}{c+di}\cdot\frac{c-di}{c-di} = \underset{r}{\underbrace{\left(\frac{ac+bd}{c^2+d^2}\right)}}+\underset{s}{\underbrace{\left(\frac{bc-ad}{c^2+d^2}\right)}}\cdot i
+\end{equation*}
+and obviously $r,s\in\mathbb{Q}$. Also notice that this means $\alpha = \beta(r+si)$.
+
+\item Because $p$ is an integer closest to $r$, we must have $|r-p|\leq 1/2$. Similarily, $|s-q|\leq 1/2$. Hence $(r-p)^2\leq 1/4$ and $(s-q)^2\leq 1/4$, so $N(\theta)\leq 1/4+1/4 = 1/2$. Consider $\gamma = \beta\theta$. We have $\beta\theta=\beta(r-p)+\beta(s-q)i = \beta(r+si)-\beta(p+qi)$. Hence by (a) we obtain $\gamma = \alpha - (p+qi)\beta$ and so $\gamma\in\mathbb{Z}[i]$. Moreover, $N(\gamma)=N(\beta)N(\theta)\leq \frac{1}{2}N(\beta)$. Therefore $\alpha = (p+qi)\beta + \gamma$ with $N(\gamma)< N(\beta)$, which gives a division algorithm for $\mathbb{Z}[i]$ (division of $\alpha$ by $\beta\neq 0$).
+
+\item We will compute a greatest common divisor of $85$ and $1+13i$. First, we compute
+\begin{equation*}
+\frac{85}{1+13i} = \frac{85}{1+13i}\cdot\frac{1-13i}{1-13i} = \frac{1-13i}{2}
+\end{equation*}
+to get that $r=1/2$ and $s=-13/2$. Take $p=0$ and $q=-6$. So $\theta=(1/2)-(1/2)i$ and $\gamma = (1+13i)(1-i)/2=7+6i$. So $85=(-6i)(1+13i)+(7+6i)$, which gives the first step of the Euclidean Algorithm. Since the rest is non-zero, we must continue the algorithm by computing the rest of $1+13i$ divided by $7+6i$. Happily,
+\begin{equation*}
+\frac{1+13i}{7+6i}=\frac{1+13i}{7+6i}\cdot\frac{7-6i}{7-6i} = 1+i
+\end{equation*}
+and so this step already gives us that $1+13i=(1+i)(7+6i)+0$. Because the rest is zero, we stop the algorithm here: a greatest common divisor of $85$ and $1+13i$ is $7+6i$.
+\end{enumerate}
+}
+
+\section{Principal Ideal Domains}
+
+\section{Unique Factorization Domains}
+
+\answer{1}{
+Write $\alpha=xy$ for $x,y\in\mathbb{Z}[\sqrt{D}]$ and suppose that $N(\alpha)=\pm p$ for $p$ a prime number in $\mathbb{Z}$. Then $N(\alpha)=N(x)N(y)$ and so $N(x)N(y)=\pm p$. Obviously this means that either $N(x)$ or $N(y)$ is $\pm 1$ (this is technically because $\mathbb{Z}$ is an integral domain, so any prime element is also irreducible and the only units in $\mathbb{Z}$ are $\pm 1$). Without loss of generality $N(x)=\pm 1$, hence $x$ is a unit in $\mathbb{Z}[\sqrt{D}]$. Therefore $\alpha$ is irreducible in $\mathbb{Z}[\sqrt{D}]$.
+}
+
+\answer{2}{
+\begin{enumerate}[label=(\alph*)]
+\item We have that $\alpha$ is a unit in $\mathbb{Z}[i]$ if and only if $N(\alpha)=\pm 1$. Since we are working with $D=-1$, the norm is always non-negative, hence $\alpha=a+bi$ is a unit if and only if $N(a+bi)=a^2+b^2=1$. We can see easily that this is the case only when $a=\pm 1$ or $b=\pm 1$ (and only one of $a$, $b$ is nonzero at a time). Thus the units in the Gaussian integers are exactly $\pm 1$ and $\pm i$.
+
+\item Notice that $N(a\pm bi)=(a+bi)(a-bi)$. Thus $(1+i)(1-i)=N(1\pm i)=2$ and by the previous problem (3.1), we conclude that both $1+i$ and $1-i$ are irreducible (because $2$ is prime), and also that the equality we were tasked to verify holds. For exactly the same reasons, $5=2^2-2i+2i-i^2=(2+i)(2-i)=N(2\pm i)$ with $2+i$ and $2-i$ irreducible elements of $\mathbb{Z}[i]$.
+
+Now let's show that 3 is irreducible. Write $3=ab$. Then $N(3)=9$ and also $N(3)=N(a)N(b)$. The divisors of $9$ are $\pm 1$, $\pm 3$ and $\pm 9$ (in $\mathbb{Z}$) and $N(a)$, $N(b)$ are \textit{positive} divisors of $9$. Suppose $N(a)=N(b)=3$. Write $a=x+yi$ for integers $x$ and $y$. Then $N(a)=x^2+y^2=3$ and so $x^2+y^2\equiv 3$ mod $4$. This is a problem because the only squares mod $4$ are $0$ and $1$: as a result $x^2+y^2$ can only take the values $0$, $1$ or $2$ mod $4$. Therefore it is never possible to have $N(a)=N(b)=3$, hence one of $N(a)$ or $N(b)$ is $1$ or $9$. In that case, it is easy to see that the other divisor must be $9$ or $1$ respectively, giving that $3$ is irreducible in $\mathbb{Z}[i]$ (recall that $a$ is a unit in $\mathbb{Z}[i]$ iff $N(a)=1$). 
+
+We work in a similar way to show that $7$ is irreducible. Write $7=ab$. Then $N(a)N(b)=49$. Suppose $N(a)=N(b)=7$ and write $a=x+yi$. Then $x^2+y^2=7$ and so $x^2+y^2\equiv 3$ mod $4$. For the same reasons as above, this gives that $7$ is irreducible in $\mathbb{Z}[i]$.
+
+\item
+We notice a pattern: it seems that if $p$ is a prime (in $\mathbb{Z}$) such that $p\equiv 3$ mod $4$, then $p$ is irreducible in $\mathbb{Z}[i]$. Let us prove this. Write $p=ab$ for $a,b\in\mathbb{Z}[i]$. We have $N(p)=p^2$ and $N(p)=N(a)N(b)$. The positive divisors of $p^2$ (and so the possible values for $N(a)$ and $N(b)$ in our situation) are $1$, $p$ and $p^2$. Suppose that $N(a)=N(b)=p$ and write $a=x+yi$. Then $x^2+y^2\equiv p\equiv 3$ mod $4$, which is impossible because the squares mod $4$ are $0$ and $1$, meaning the sum of two squares cannot be $3$. Therefore one of $N(a)$ and $N(b)$ must be $1$ and thus one of $a$ and $b$ must be a unit. Hence $p$ is irreducible in the Gaussian integers.
+
+This immediately gives us that 11, 19, 23 and 31 are irreducibles in $\mathbb{Z}[i]$. 
+
+We also see that if some $a\in\mathbb{Z}$ is the sum of two squares, then $a=x^2+y^2=(x+yi)(x-yi)$ and so $a$ is reducible in $\mathbb{Z}[i]$. Because $13=2^2+3^2$, $17=1^2+4^2$ and $29=2^2+5^2$, these are reducible.
+\end{enumerate}
+}

@@ -1,5 +1,39 @@
 \chapter{Polynomial Rings}
 
+\section{Definitions and Basic Properties}
+
+\answer{12}{
+First, notice that in $R$, the ideal $(x,z)$ is equal to the ideal $(x,z,xy-z^2)$. This is pretty easy to see but we will prove it explicitely. Clearly, $(x,z)\subseteq (x,z,xy-z^2)$. Now take some $a\in(x,z,xy-z^2)$. Then $a=r_1x+r_2z+r_3xy-r_3z^2$ for some $r_1,r_2,r_3\in R$. Hence $a=(r_1+r_3y)x+(r_2+r_3z)z\in(x,z)$. Therefore $(x,z,xy-z^2)=(x,z)$.
+
+Let $I=(xy-z^2)$ and $J=(x,z,xy-z^2)=(x,z)$. We have that $I\subset J$. By the Third Isomorphism Theorem for Rings (p.246 of D\&F), we get that $J/I=(\overline{x},\overline{z})=\overline{P}$ is an ideal of $R/I=\overline{R}$ (we already knew that) and crucially,
+\begin{equation*}
+\overline{R}/\overline{P}\cong R/J=\mathbb{Q}[x,y,z]/(x,z)\cong \mathbb{Q}[y].
+\end{equation*}
+Because $\mathbb{Q}[y]$ is an integral domain, we conclude that the ideal $\overline{P}$ of $\overline{R}$ must be a prime ideal.
+
+Since $\overline{P}^2=\{\overline{\alpha}\cdot\overline{\gamma}\ |\ \overline{\alpha},\overline{\gamma}\in\overline{P}\}$, it is clear that $\overline{xy}=\overline{z}\cdot \overline{z}\in \overline{P}^2$. Now suppose that there exists some integer $k\geq 0$ such that $\overline{y}^k\in \overline{P}^2$. This means that $\overline{y}^k=\overline{\alpha}\cdot\overline{\gamma}$ for some $\overline{\alpha},\overline{\gamma}\in\overline{P}$. Let $\pi:\overline{R}\to\overline{R}/\overline{P}$ be the natural projection homomorphism. Then $\pi(\overline{y}^k)=\pi(\overline{y})^k=0$. However $\pi(\overline{y})$ is nonzero. This is in contradiction with the fact that $\mathbb{Q}[y]$, to which $\overline{R}/\overline{P}$ is isomorphic, is an integral domain. Therefore no power of $\overline{y}$ lies in $\overline{P}^2$.
+}
+
+\section{Poynomial Rings Over Fields I}
+
+\section{Polynomial Rings that are Unique Factorization Domains}
+
+\answer{2}{
+\begin{enumerate}[label=(\alph*)]
+\item We apply Eisenstein's Criterion with prime $p=2$. We can apply the criterion because $2$ divides both $-4$ and $6$, but happily $p^2=4$ does not divide $6$ and thus $x^4-4x^3+6$ is irreducible in $\mathbb{Z}[x]$.
+
+\item This is another direct application of Eisenstein's Criterion, using prime $p=3$. Indeed, $3$ divides all of $30$, $-15$, $6$ and $-120$ while $p^2=9$ fails to divide $120$. Hence $x^6+30x^5-15x^3+6x-120$ is irreducible in $\mathbb{Z}[x]$.
+
+\item Let $f(x)=x^4+4x^3+6x^2+2x+1$. It seems we cannot apply Eisenstein's Criterion directly, but following the hint in the question we let $g(x)=f(x-1)$. After computation, we get that $g(x)=x^4-2x+2$. We apply Eisenstein's Criterion with prime $p=2$ on $g(x)$ to obtain that $g(x)$ is irreducible in $\mathbb{Z}[x]$. This means that $f(x)$ is also irreducible: if it were not, then the reduction $f(x)=a(x)b(x)$ would make $g(x)$ reducible because we would have $g(x)=a(x-1)b(x-1)$.
+
+\item We compute
+\begin{equation*}
+f(x)=\frac{(x+2)^p-2^p}{x} = \sum_{k=1}^p {p\choose k}x^{k-1}2^{p-k} = p\,2^{p-1}+x^{p-1}+\sum_{k=2}^{p-1}{p\choose k}x^{k-1}2^{p-k}
+\end{equation*}
+and we can now see that the prime integer $p$ divides every coefficient of $f(x)$ except the leading one (which is 1, i.e. this polynomial is monic). Moreover, because $p$ is odd, we see that $p^2$ cannot divide $p\,2^{p-1}$. Therefore, by the Eisenstein Criterion, $f(x)$ is irreducible in $\mathbb{Z}[x]$.
+\end{enumerate}
+}
+
 \section{Polynomial Rings over Fields II}
 
 For the remaining exercises let $F$ be a field, let $F^n$ be the set of all $n$-tuples of elements of $F$ (called \textit{affine $n$-space over F}) and let $R$ be the polynomial ring $F[x_1,x_2,\dots,x_n]$. The elements of $R$ form a ring of $F$-valued functions on $F^n$, where the value of the polynomial $p(x_1,\dots,x_n)$ on the $n$-tuple $(a_1,\dots,a_n)$ is obtained by substituting $a_i$ for $x_i$ for all $i$.

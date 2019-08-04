@@ -34,6 +34,36 @@ Let $b_1=(1,0,0,0)$, $b_2=(1,-1,0,0)$, $b_3=(1,-1,1,0)$ and $b_4=(1,-1,1,-1)$. T
 This is a concrete realization of an "extension by linearity" of $\varphi$.
 }
 
+\section{The Matrix of a Linear Transformation}
+
+\answer{11}{
+\begin{enumerate}[label=(\alph*)]
+\item Take $y\in\text{im}\,\varphi \cap \ker \varphi$. Then there is some $x\in V$ such that $\varphi(x)=y$ and moreover $\varphi(y)=0$. Since $\varphi(y)=\varphi^2(x)$ and $\varphi=\varphi^2$, we must have $\varphi(y)=\varphi(x)=0$. Hence $y=0$ by the first equality. Because $y$ was arbitrary, we must have $\text{im}\,\varphi\cap\ker\varphi=0$.
+
+\item Take any $x\in V$. The intuition here is that since $\varphi$ is idempotent, the natural projection $\pi:V\to V/\ker\varphi$ will map $x$ and $\varphi(x)$ to the same element, because $x$ and $\varphi(x)$ will basically "collapse" to the same element of $V$. More precisely, we have that $\varphi(x)=\varphi^2(x)$ and thus $\varphi(x-\varphi(x))=0$, or in other words $x-\varphi(x)\in\ker\varphi$. Now $x=\varphi(x)+[x-\varphi(x)]\in\text{im}\,\varphi+\ker\varphi$. Because $x$ was arbitrary, we get that $V=\text{im}\,\varphi+\ker\varphi$. Since $\text{im}\,\varphi$ and $\ker\varphi$ are both submodules of the $F$-module $V$, we get by (a) and by Proposition 5 (on p.329 of D\&F) that $V=\text{im}\,\varphi\oplus\ker\varphi$.
+
+\item Let $\mathcal{B}=\{u_1,u_2,\dots,u_k\}$ be a basis for $\text{im}\,\varphi$ and let $\mathcal{C}=\{v_1,v_2,\dots,v_l\}$ be a basis for $\ker\varphi$. By (b), we know that any $x\in V$ can be written uniquely as $x=\alpha+\beta$ for $\alpha\in\text{im}\,\varphi$ and $\beta\in\ker\varphi$. Therefore any $x\in V$ can also be written uniquely as $x=(a_1u_1+a_2u_2+\dots+a_ku_k)+(b_1v_1+b_2v_2+\dots+b_lv_l)$ for $a_i,b_i\in F$. This means that the set $\{u_1,u_2,\dots,u_k,v_1,v_2,\dots,v_l\}=\mathcal{D}$ spans $V$; moreover the uniqueness signifies that $\mathcal{D}$ is actually a set of independent vectors. Hence $\mathcal{D}$ is a basis for $V$.
+
+Now let $u_i$ be one of the basis element of $\text{im}\,\varphi$ in $\mathcal{B}$. Then there exists some $w\in V$ such that $\varphi(w)=u_i$. Using idempotence, $\varphi(w)=\varphi(u_i)=u_i$. Therefore, in the matrix representation of $\varphi$, in the column standing for the basis element $u_i$, there is a single 1 on the $i$th row and zeros everywhere else, for $i$ ranging from $1$ to $\dim(\text{im}\,\varphi)$.
+
+If $v_i$ is one of the basis element of $\ker\varphi$ in $\mathcal{C}$, then obviously $\varphi(v_i)=0$ and as such the column standing for $v_i$ in the matrix representation of $\varphi$ is only zeroes (with $i$ ranging from $\dim(\text{im}\,\varphi)+1$ to $\dim V$).
+
+This shows that the matrix representation of $\varphi$ is a diagonal matrix with only ones and zeroes in it.
+\end{enumerate}
+}
+
+\answer{35}{
+\begin{enumerate}[label=(\alph*)]
+\item Take any matrix $M=\bigl(\begin{smallmatrix} a&b \\ c&d\end{smallmatrix}\bigr)$ in $V$. Then obviously $M = a\bigl(\begin{smallmatrix}1&0\\0&0\end{smallmatrix}\bigr)+b\bigl(\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\bigr)+c\bigl(\begin{smallmatrix}0&0\\1&0\end{smallmatrix}\bigr)+d\bigl(\begin{smallmatrix}0&0\\0&1\end{smallmatrix}\bigr)$, hence these four matrices form a spanning set of $V$. It is also obvious that any smaller subset of these four matrices would not span $V$. Therefore they form a basis for $V$. As a consequence we have $\dim V=4$.
+
+\item Let $\gamma\in\mathbb{R}$ and $A=\bigl(\begin{smallmatrix} a&b \\ c&d\end{smallmatrix}\bigr)\in V$. Then $\varphi(\gamma A) = \gamma a + \gamma d = \gamma(a+d) = \gamma\varphi(A)$. Now let $B=\bigl(\begin{smallmatrix} w&x \\ y&z\end{smallmatrix}\bigr)\in V$. We have $\varphi(A+B)=(a+w)+(d+z)=(a+d)+(w+z)=\varphi(A)+\varphi(B)$. Hence $\varphi$ is a linear transformation between $V$ and $\mathbb{R}$.
+
+Obviously $\mathbb{R}$ is a one-dimensional vector space with $\{1\}$ as a basis. Because $\varphi\bigl(\begin{smallmatrix}1&0\\0&0\end{smallmatrix}\bigr)=\varphi\bigl(\begin{smallmatrix}0&0\\0&1\end{smallmatrix}\bigr)=1$ and $\varphi\bigl(\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\bigr)=\varphi\bigl(\begin{smallmatrix}0&0\\1&0\end{smallmatrix}\bigr)=0$, we get that the matrix representation of $\varphi$ for these bases is given by $M=\bigl(\begin{matrix}1&0&0&1\end{matrix}\bigr)$. Since $\varphi$ is visibly surjective, we have $\dim\varphi(V)=\dim\mathbb{R}=1$.
+
+We know that $\dim V=\dim\varphi(V)+\dim(\ker\varphi)$, and thus $\dim(\ker\varphi)=4-1=3$. Consider the set of matrices $\mathcal{B}=\{\bigl(\begin{smallmatrix}-1&0\\0&1\end{smallmatrix}\bigr),\bigl(\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\bigr),\bigl(\begin{smallmatrix}0&0\\1&0\end{smallmatrix}\bigr)\}$. These three matrices are clearly linearly independent. Because for any real numbers $a,b,c$ we have $\varphi(a\bigl(\begin{smallmatrix}-1&0\\0&1\end{smallmatrix}\bigr)+b\bigl(\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\bigr)+c\bigl(\begin{smallmatrix}0&0\\1&0\end{smallmatrix}\bigr))=a\varphi(\bigl(\begin{smallmatrix}-1&0\\0&1\end{smallmatrix}\bigr))+b\varphi(\bigl(\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\bigr))+c\varphi(\bigl(\begin{smallmatrix}0&0\\1&0\end{smallmatrix}\bigr))=0$, this means that $\text{Span}(\mathcal{B})\subseteq\ker\varphi$. But $\ker\varphi$ has dimension three, as computed earlier. This means that $\mathcal{B}$ is actually a basis for $\ker\varphi$.
+\end{enumerate}
+}
+
 \section{Dual Vector Spaces}
 
 \answer{4}{

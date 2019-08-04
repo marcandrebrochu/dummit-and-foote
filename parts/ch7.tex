@@ -1,0 +1,12 @@
+\chapter{Introduction to Rings}
+
+\section{The Chinese Remainder Theorem}
+
+\answer{6}{
+Write $f_i(x)=c_{i0}+c_{i1}x+c_{i2}x^2+\dots+c_{id}x^d$ for each $i=1,2,\dots,k$. We wish to exhibit a polynomial $f(x)=a_0+a_1x+a_2x^2+\dots+a_dx^d$ such that for every $m=0,1,\dots,d$, we have that $a_m\equiv c_{im}$ mod $n_i$ for every $i=1,2,\dots,k$, i.e. we want the coefficients of $f$ to agree (mod $n_i$) with the coefficients of $f_i$ for each $i$.
+
+By the Chinese Remainder Theorem, because the $n_i$'s are pairwise coprime, $\mathbb{Z}/(n_1n_2\dots n_k)\mathbb{Z}$ is isomorphic to $S=\mathbb{Z}/n_1\mathbb{Z}\times\mathbb{Z}/n_2\mathbb{Z}\times\dots\times\mathbb{Z}/n_k\mathbb{Z}$. Hence for a fixed $m\in\{0,1,\dots,d\}$ and for $s=(c_{1m}, c_{2m}, \dots, c_{km})\in S$, there is a unique residue $a_m\in \mathbb{Z}/(n_1n_2\dots n_k)\mathbb{Z}$ that maps to it. We "lift" the residue into $\mathbb{Z}$ as $a_m$ and we use that integer for the correspondingly named coefficient in $f(x)$.
+
+If the polynomials $f_i(x)$ are all monic, then by doing the same procedure as in the previous paragraph we will find that the element $(1,1,\dots,1)\in S$ corresponding to the coefficients of the highest degree in the $f_i(x)$'s have to be the (isomorphic) image of the residue $1\in\mathbb{Z}/(n_1n_2\dots n_k)\mathbb{Z}$. This is because the isomorphism to $S$ is an isomorphism of rings, hence it must preserve the multiplicative identity. Therefore we can lift the residue $1\in\mathbb{Z}/(n_1n_2\dots n_k)\mathbb{Z}$ to the integer $1\in\mathbb{Z}$ and use that as the highest coefficient in $f(x)$, meaning that it is possible to choose $f(x)$ to be a monic polynomial.
+}
+

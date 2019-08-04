@@ -23,7 +23,7 @@ Note: for any $r\in R$, $r0 = r(0+0) = r0+r0 \iff r0=0$.
 }
 
 \answer{4}{
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
 \item
 Let $N=\{(x_1,x_2,\dots,x_n)\ |\ x_i\in I_i\}$. An ideal of $R$ is also a subgroup of $R$: thus it contains $0$. This means that $(0,\dots,0)\in N$; hence $N$ is not empty. Take any $x,y\in N$ and any $\alpha\in R$. Then $x+\alpha y = (x_1+\alpha y_1,x_2+\alpha y_2,\dots,x_n+\alpha y_n)\in N$ because each $I_i$ is closed under addition and left multiplication by an element of $R$. By the Submodule Criterion, $N$ is a submodule of $M$.
 \item
@@ -48,11 +48,11 @@ Let $N=\bigcup_{i=1}^\infty N_i$. It is evident that $N$ is nonempty. Pick $x,y\
 }
 
 \answer{8}{
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
 \item
-It is easy to see that $0 \in \Tor(M)$. Therefore $\Tor(M) \neq \varnothing$. Now let $m,n \in \Tor(M)$ and $\alpha \in R$. There exists nonzero elements $r,s$ of $R$ such that $rm=sn=0$. Thus $rs(m+\alpha n) = (rs)m+(rs\alpha)n = s(rm)+r\alpha(sn) = s0+r\alpha0 = 0$. Since $R$ is an integral domain, the product $rs$ is nonzero. Therefore $m+\alpha n \in \Tor(M)$. By the submodule criterion, $\Tor(M)$ is a submodule of $M$.
+It is easy to see that $0 \in \Tor(M)$. Therefore $\Tor(M) \neq \varnothing$. Now let $m,n \in \Tor(M)$ and $\alpha \in R$. This means there exists nonzero elements $r,s$ of $R$ such that $rm=sn=0$. Since $R$ is an integral domain, the product $rs$ is nonzero. We compute $rs(m+\alpha n) = (rs)m+(rs\alpha)n = s(rm)+r\alpha(sn) = s0+r\alpha0 = 0$. Therefore $m+\alpha n \in \Tor(M)$. By the submodule criterion, $\Tor(M)$ is a submodule of $M$.
 \item
-Notice that the torsion elements in the $R$-module $R$ are simply the zero divisors of $R$ plus the zero element. Now consider the ring $\mathbb{Z}_6$ as a module over itself. In this module, $2$ and $3$ are torsion elements. However $2+3=5$ is not a torsion element because $5$ is coprime with $6$. Therefore $\Tor(\mathbb{Z}_6)$ is not a subgroup (and thus not a submodule) of $\mathbb{Z}_6$.
+Notice that the torsion elements in the $R$-module $R$ are simply the zero divisors of $R$ plus the zero element. For instance, consider the ring $\mathbb{Z}_6$ as a module over itself. Its zero divisors (torsion elements) are $\{0,2,3,4\}$, and so it is clear that $\Tor(\mathbb{Z}_6)$ fails to be a group: $2+3=5$ is not a torsion element because $5$ is coprime with $6$ and hence is not a zero divisor. Therefore $\Tor(\mathbb{Z}_6)$ is not a submodule of $\mathbb{Z}_6$.
 \item
 Take nonzero elements $a,b$ in $R$ such that $ab=0$. Take some nonzero $m\in M$. If $bm=0$, then $m$ is a torsion element and we are done. Else, $a(bm) = (ab)m = 0m=0$ and $bm$ is a torsion element. In both cases, $\Tor(M)$ is not trivial so the statement is proven.
 \end{enumerate}
@@ -72,6 +72,18 @@ Write $A=\{m\in M\ |\ am=0\ \forall a\in I\}$. Since it is clear that $0\in A$, 
 Let $M$ and $N$ be $R$-modules and let $\varphi:M\to N$ be a $R$-module homomorphism. It is clear that $0\in\ker\varphi$, so it is not empty. Take any $x,y\in\ker\varphi$ and any $r\in R$. Then $\varphi(x+ry) = \varphi(x)+r\varphi(y)=0$ and so $x+ry\in\ker\varphi$. By the submodule criterion, we get that $\ker\varphi$ is a submodule of $M$. Similarily, we see that $\im\varphi$ is not empty because it contains $0$. Take any $x,y\in \im\varphi$ and any $r\in R$. Then there exists $a,b\in M$ such that $\varphi(a)=x$ and $\varphi(b)=y$. Thus $\varphi(a)+r\varphi(b) = \varphi(a+rb)=x+ry$ and we get by the submodule criterion that $\im\varphi$ is a submodule of $N$.
 }
 
+\answer{8}{
+Pick some element $x\in\Tor(M)$. Then there exists some nonzero $r\in R$ such that $rx=0$. Hence $\varphi(rx)=r\varphi(x)=0$ because $\varphi$ is a homomorphism and thus preserves the action of $r$ and maps $0_M$ to $0_N$. This means that $\varphi(x)\in\Tor(N)$ (the element of $R$ that annihilates $x$ in $M$ also annihilates $\varphi(x)$ in $N$). Therefore $\varphi(\Tor(M))\subseteq\Tor(N)$.
+}
+
+\answer{9}{
+Following the hint in the text, we wish to show that each $\varphi\in\Hom_R(R,M)$ is completely determined by its value at $1\in R$. This is easy to see: $\varphi(r)=\varphi(r\cdot 1)=r\varphi(1)$ for all $r\in R$ (the action of $R$ on itself as a module is just multiplication). This means that two different $\varphi$, $\nu \in \Hom_R(R,M)$ will have $\varphi(1)\neq\nu(1)$. Hence the map $f:\Hom_R(R,M)\to M$ given by $f(\varphi)=\varphi(1)$ is injective.
+
+To show that the map $f$ is surjective, take any $m\in M$ and consider the mapping $\varphi_m:R\to M$ given by $\varphi_m(r)=rm$. It is easy to see that this mapping is a homomorphism between $R$-modules. Let us check just to be sure: if we have $x,y,\alpha\in R$, then $\varphi_m(\alpha x+y) = (\alpha x+y)m = (\alpha x)m+ym=\alpha(xm)+ym=\alpha\varphi_m(x)+\varphi_m(y)$, which verifies our claim. Moreover, $f(\varphi_m)=\varphi_m(1)=1m=m$. This shows that $\text{im}\,f=M$.
+
+Now we need to show that $f$ is a ($R$-module) homomorphism. Because it is a bijection by the preceding two paragraphs, this will prove that $\Hom_R(R,M)\cong M$. Take $\alpha\in R$ and $\varphi, \nu\in \Hom_R(R,M)$. Then $f(\alpha\varphi+\nu) = (\alpha\varphi+\nu)(1)=(\alpha\varphi)(1)+\nu(1)=\alpha(\varphi(1))+\nu(1)=\alpha f(\varphi)+f(\nu)$. Hence $f$ is an ($R$-module) isomorphism. This finishes the answer to the question.
+}
+
 \answer{12}{
 The notation in this question seems confusing at first, but realize that $I(R^n)$ and $(IR)^n$ are actually exactly the same thing (and this thing is an $R$-submodule of $R^n$).
 
@@ -85,12 +97,18 @@ Let $I$ be a maximal ideal of $R$ (such a maximal ideal always exists by Zorn's 
 }
 
 \answer{3}{
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
 \item
 Consider the $\mathbb{R}[x]$-module $M$ induced from the vector space $\mathbb{R}^2$ over the field $\mathbb{R}$ using the linear transformation $T$ which sends a vector to its counter-clockwise rotation by $\pi/2$ radians. Take $(1,0)\in \mathbb{R}$: this element is a generator for $M$. Indeed, take any $(a,b)\in \mathbb{R}^2$. Then $(a+bx)\cdot(1,0) = a\cdot(1,0)+b\cdot T(1,0) = a(1,0)+b(0,1)=(a,b)$, hence $\mathbb{R}[x]\cdot(1,0)=M$. Therefore $M$ is a cyclic module.
 \item
 Consider a similar $M$ again but this time induced using the linear transformation $T'$ which is a projection on the $y$-axis. The element $(1,1)\in\mathbb{R}^2$ generates $M$: take any $(a,b)\in\mathbb{R}^2$. Then $(a+(b-a)x)\cdot(1,1)=a(1,1)+(b-a)T'(1,1)=a(1,1)+(b-a)(0,1)=(a,a)+(0,b-a)=(a,b)$. Thus $M$ is a cyclic module.
 \end{enumerate}
+}
+
+\answer{7}{
+Take $A=\{\overline{a_1},\overline{a_2},\dots,\overline{a_n}\}$ to be a generating set for $M/N$ and $B=\{b_1,b_2,\dots,b_m\}$ to be a generating set for $N$. Pick any element $m\in M$. We will show that this element can be written using only the (finite number of) generators in $A\cup B$. This will show that $M$ is a finitely generated module.
+
+As usual, $\overline{m}$ denotes the projection of $m$ inside $M/N$. We have that $\overline{m}=r_1\overline{a_1}+r_2\overline{a_2}+\dots+r_n\overline{a_n}=\overline{r_1a_1+r_2a_2+\dots+r_na_n}$. This holds if and only if $m-(r_1a_1+r_2a_2+\dots+r_na_n)\in N$, and so $m-(r_1a_1+r_2a_2+\dots+r_na_n)=s_1b_1+s_2b_2+\dots+s_mb_m$. Hence $m=r_1a_1+r_2a_2+\dots+r_na_n+s_1b_1+s_2b_2+\dots+s_mb_m$. Because $m$ was arbitrary, this proves the claim that $M$ is a finitely generated module and $M=R(A\cup B)$.
 }
 
 \answer{9}{
